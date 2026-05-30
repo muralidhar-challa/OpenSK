@@ -1,3 +1,4 @@
 [submodule "third_party/wasefire"]
 	path = third_party/wasefire
-	url = https://github.com/google/wasefire
+	url = https://github.com/muralidhar-challa/wasefire.git
+	branch = board-xiao-support

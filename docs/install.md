@@ -118,6 +118,7 @@ For more details on the boards, see:
 - [Nordic nRF52840-DK](boards/nrf52840dk.md) - target: `nrf52840dk`
 - [Nordic nRF52840 Dongle](boards/nrf52840_dongle.md) - target: `nrf52840_dongle`
 - [Makerdiary nRF52840-MDK USB dongle](boards/nrf52840_mdk.md) - target: `nrf52840_mdk`
+- [Seeed Studio XIAO nRF52840](boards/nrf52840_xiao.md) - target: `nrf52840_xiao`
 - [Feitian OpenSK dongle](boards/nrf52840_feitian.md) - target: `nrf52840_dongle`
 
 ### OpenTitan

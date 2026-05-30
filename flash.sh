@@ -30,6 +30,7 @@ usage() {
   echo "  nrf52840dk         Nordic nRF52840 Development Kit"
   echo "  nrf52840_dongle    Nordic nRF52840 Dongle"
   echo "  nrf52840_mdk       Makerdiary nRF52840 MDK USB Dongle"
+  echo "  nrf52840_xiao      Seeed Studio XIAO nRF52840"
   exit 1
 }
 
@@ -121,6 +122,17 @@ case $TARGET in
     fi
     cargo xtask --release --native applet rust ../.. --opt-level=z --features="$MDK_FEATURES" \
       runner nordic --board=makerdiary --opt-level=z --features=usb-ctap \
+        --features="$SOFTWARE_CRYPTO_FEATURES" \
+      "${CMD[@]}"
+    ;;
+  nrf52840_xiao)
+    # Ensure led-1 is included for XIAO
+    XIAO_FEATURES="$FEATURES"
+    if [[ ! "$XIAO_FEATURES" =~ "led-1" ]]; then
+      XIAO_FEATURES="$XIAO_FEATURES,led-1"
+    fi
+    cargo xtask --release --native applet rust ../.. --opt-level=z --features="$XIAO_FEATURES" \
+      runner nordic --board=xiao --opt-level=z --features=usb-ctap \
         --features="$SOFTWARE_CRYPTO_FEATURES" \
       "${CMD[@]}"
     ;;
